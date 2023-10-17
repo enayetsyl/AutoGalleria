@@ -1,24 +1,21 @@
-import { BsGoogle } from "react-icons/bs";
+import registerPhoto from '../../assets/registerPhoto.png'
 import { Link } from "react-router-dom";
-import loginPhoto from '../../assets/loginPhoto.jpg'
 
 const Login = () => {
 
-  const handleLogin = e =>{
+  const handleRegister = e =>{
     e.preventDefault();
   }
 
-  const handleGoogleSignIn = e => {
-    e.preventDefault();
-  }
-
-  return (
+    return (
     <div 
-    style={{backgroundImage: `url(${loginPhoto})`}}
-    className="min-h-[82vh] flex items-center justify-center p-5">
-      <div className="bg-[#ffffff] p-8 rounded-lg shadow-lg w-96">
-        <h1 className="text-3xl font-bold mb-6 text-center text-[#333333]">Login</h1>
-        <form onSubmit={handleLogin}>
+    style={{
+    backgroundImage: `url(${registerPhoto})`
+    }}
+    className="min-h-[80vh] flex items-center justify-center p-5">
+      <div className="bg-[#ffffff] border border-solid border-[#dddddd] p-8 rounded-lg shadow-lg w-96">
+        <h1 className="text-3xl font-bold mb-6 text-center text-[#333333]">Register</h1>
+        <form onSubmit={handleRegister}>
           <div className="mb-4">
             <label className="block text-sm font-semibold text-[#333333]">Email</label>
             <input
@@ -41,29 +38,22 @@ const Login = () => {
           </div>
           <div className="text-center mt-6">
             <button className="bg-[#007ACC] text-white py-2 px-4 rounded-lg hover:bg-[#007ACC]">
-              Login
+              Register
             </button>
           </div>
         </form>
         <p className="text-sm mt-4 text-center">
-          Do not have an account?
+          Already have an account?
           <span className="text-[#007ACC] pl-2 font-semibold">
-            <Link to="/register">Register</Link>
+            <Link to="/login">Login</Link>
           </span>
         </p>
-        <hr />
-        <div className="text-center pt-1">
-          <h1 className="pb-1 font-bold">Or</h1>
-          <div className="bg-[#007ACC] text-white py-3 rounded-lg mb-5 flex items-center justify-center gap-2">
-          <BsGoogle /> <button onClick={handleGoogleSignIn}>
-             Sign in with Google
-          </button>
-          </div>
-        </div>
+        
       </div>
     </div>
   );
 };
 
 export default Login;
+
 
