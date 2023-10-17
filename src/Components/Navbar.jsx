@@ -22,7 +22,7 @@ const Navbar = () => {
         
       </ul>
     </div>
-    <p className="font-mont text-[#007acc]"><span className="font-bold text-6xl">Auto</span><span className="font-medium text-4xl">Galleria</span></p>
+    <p className="font-mont text-[#007acc]"><span className="font-bold text-5xl md:text-6xl">Auto</span><span className="font-medium text-3xl md:text-4xl">Galleria</span></p>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">

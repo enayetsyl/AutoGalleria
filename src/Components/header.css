@@ -1,0 +1,36 @@
+
+/* Default text shadow style for large devices */
+.header-text {
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.9);
+  /* Add other text styling properties like font-size and color here */
+}
+
+/* Text shadow style for medium devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .header-text {
+    text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.8);
+    /* Add other text styling properties like font-size and color here */
+  }
+}
+
+/* Text shadow style for small devices (max-width: 425px) */
+@media (max-width: 425px) {
+  .header-text {
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.9);
+    /* Add other text styling properties like font-size and color here */
+  }
+}
+
+/* Default background image for medium and large devices */
+.header-container {
+  background-image: url('https://i.ibb.co/wMr5THB/header.jpg');
+  /* Add other background styling properties here */
+}
+
+/* Background image for small devices (max-width: 425px) */
+@media (max-width: 425px) {
+  .header-container {
+    background-image: url('https://i.ibb.co/pdZQtqQ/sm.jpg');
+    /* Add other background styling properties here */
+  }
+}
