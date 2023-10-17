@@ -6,7 +6,12 @@ export default {
      ],
 
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        mont:[ 'Montserrat', 'sans-serif'],
+        roboto:['Roboto', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }
