@@ -4,10 +4,41 @@ import Header from "../../Components/Header";
 import Newsletter from "../../Components/Newsletter";
 import WhyChooseUs from "../../Components/WhyChooseUs";
 import Car from "../../Components/Car";
+import { useState } from "react";
 
 const Home = () => {
   const cars = useLoaderData();
-  console.log(cars)
+  const [product, setProduct] = useState(null)
+  console.log(product)
+
+  const handleCardClick = async (name) => {
+    try {
+      const response = await fetch(`http://localhost:5000/products/${name}`);
+      if (!response.ok) {
+        throw new Error(`Request failed with status: ${response.status}`);
+      }
+      const data = await response.json();
+      setProduct(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+   
+  
+
+  // const handleCardClick = (name) => {
+  //   console.log(name)
+  //   fetch(`http://localhost:5000/products/${name}`)
+  //   .then(res=> res.json())
+  //   .then(data => {
+  //     console.log(data)
+  //     setProduct(data)
+  //   })
+  //   .catch(error => {
+  //     console.log(error)
+  //   })
+  // }
+
   return (
     <div>
    <Header></Header>
@@ -18,12 +49,12 @@ const Home = () => {
       cars.length > 0 && (
         <>
         <div className="col-span-1">
-          <Car car={cars[0]}/>
+          <Car car={cars[0]} handleCardClick={handleCardClick}/>
         </div>
         {
           cars.slice(1).map(car => (
             <div key={car._id} className="col-span-1">
-              <Car car={car}/>
+              <Car car={car} handleCardClick={handleCardClick}/>
             </div>
           ))
         }

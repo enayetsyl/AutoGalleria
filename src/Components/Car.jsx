@@ -1,10 +1,15 @@
 
-const Car = ({car}) => {
+const Car = ({car, handleCardClick}) => {
   const {image, name} = car;
-  console.log(car)
+  // console.log(car)
+  const handleClick = () => {
+    handleCardClick(name)
+  }
   return (
     <div>
-      <div className="bg-[#ffffff] border border-solid border-[#dddddd] rounded-xl">
+      <div className="bg-[#ffffff] border border-solid border-[#dddddd] rounded-xl"
+      onClick={handleClick}
+      >
         <img src={image} alt="" className="rounded-t-xl h-[320px] w-full"/>
         <div className="p-5">
         <h1 className="font-mont text-[#333333] font-bold text-3xl pb-3">{name}</h1>
