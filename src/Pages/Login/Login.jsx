@@ -1,11 +1,31 @@
 import { BsGoogle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import loginPhoto from '../../assets/loginPhoto.jpg'
+import { AuthContext } from '../../Provider/AuthProvider';
+import swal from 'sweetalert';
+import { useContext } from "react";
 
 const Login = () => {
 
+  const {loading, userLogin} = useContext(AuthContext)
+
   const handleLogin = e =>{
     e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password)
+    userLogin(email, password)
+    .then(result => {
+      if(result.user){
+        swal("Congratulation!", "Your login successful!", "success")
+      }
+    })
+    .catch(error => {
+      if(error){
+        swal("Sorry!", `${error.message}`, "error");
+      }
+    })
   }
 
   const handleGoogleSignIn = e => {

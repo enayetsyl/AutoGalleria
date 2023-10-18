@@ -1,10 +1,43 @@
+import { useContext } from 'react';
 import registerPhoto from '../../assets/registerPhoto.png'
 import { Link } from "react-router-dom";
+import { AuthContext } from '../../Provider/AuthProvider';
+import swal from 'sweetalert';
 
-const Login = () => {
+const Register = () => {
+
+  const {createUser} = useContext(AuthContext)
 
   const handleRegister = e =>{
     e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password)
+    if(password.length < 6 ){
+      swal("Sorry!", "Your password must have atleast 6 characters.", "error")
+      return;
+    }else if(!/[A-Z]/.test(password)){
+      swal("Sorry!", "Your password must have atleast 1 capital letter.", "error")
+      return;
+    } else if (!/[!@#$%^&*()\-_=+\[\]{}|\\;:'"<>,.?/]/.test(password)){
+      swal("Sorry!", "Your password must have atleast 1 special character.", "error");
+      return;
+    }
+
+    createUser(email, password)
+    .then(result => {
+      console.log(result.user)
+      if(result.user){
+        swal("Congratulation!", "Your Registration Complete!", "success");
+      } 
+    })
+    .catch(error => {
+      console.log(error)
+      if(error){
+        swal("Sorry!", `${error.message}`, "error");
+      }
+    })
   }
 
     return (
@@ -54,6 +87,6 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
 
 
