@@ -8,7 +8,7 @@
 /* Text shadow style for medium devices (max-width: 768px) */
 @media (max-width: 768px) {
   .header-text {
-    text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.8);
+    text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.4);
     /* Add other text styling properties like font-size and color here */
   }
 }

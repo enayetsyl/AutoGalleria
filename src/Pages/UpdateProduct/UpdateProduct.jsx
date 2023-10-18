@@ -6,11 +6,11 @@ import { MdDescription } from 'react-icons/md';
 import { FcRating } from 'react-icons/fc';
 
 
-const AddProduct = () => {
+const UpdateProduct = () => {
   return (
     <div>
       <div className=" p-10 w-3/4 mx-auto bg-[#ffffff] rounded-xl mt-20">
-    <h1 className="py-5 font-mont text-center text-3xl font-bold">Add a New Automotive Product</h1>
+    <h1 className="py-5 font-mont text-center text-3xl font-bold">Update an Existing Automotive Product</h1>
     <div>
       <div className='flex  items-center gap-3 py-3'>
         <FaCar></FaCar>
@@ -67,10 +67,10 @@ const AddProduct = () => {
       </div>
       <input type="text" name="image" id="" placeholder='Type image URL.' className='font-roboto text-[#666666] border-solid border-b-2 border-[#dddddd] p-3 w-full'/>
     </div>
-    <input type="submit" value="Add Product" className='w-full my-10 px-8 py-3 bg-[#077acc] text-white font-bold rounded-lg' />
+    <input type="submit" value="Update Product" className='w-full my-10 px-8 py-3 bg-[#077acc] text-white font-bold rounded-lg' />
       </div>
     </div>
   );
 };
 
-export default AddProduct;
+export default UpdateProduct;
