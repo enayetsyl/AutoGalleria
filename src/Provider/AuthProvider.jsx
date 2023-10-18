@@ -11,6 +11,21 @@ const AuthProvider = ({children}) => {
   const [userName, setUserName]= useState('');
   const [userPhoto, setUserPhoto] = useState('');
   const [user, setUser] = useState(null)
+  const [product, setProduct] = useState(null)
+
+  const handleCardClick = async (name) => {
+    try {
+      const response = await fetch(`http://localhost:5000/products/${name}`);
+      if (!response.ok) {
+        throw new Error(`Request failed with status: ${response.status}`);
+      }
+      const data = await response.json();
+      setProduct(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -52,7 +67,9 @@ const AuthProvider = ({children}) => {
     setUserPhoto,
     user,
     userName,
-    userPhoto
+    userPhoto,
+    handleCardClick,
+    product
   }
   return (
     <AuthContext.Provider value={info}>

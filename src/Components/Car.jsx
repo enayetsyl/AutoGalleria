@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 
-const Car = ({car, handleCardClick}) => {
+const Car = ({car, handleCardClick, product}) => {
   const {image, name} = car;
   // console.log(car)
   const handleClick = () => {
@@ -7,6 +8,10 @@ const Car = ({car, handleCardClick}) => {
   }
   return (
     <div>
+      <Link to={{
+  pathname: '/productdetals',
+  state: { product: product }
+}}>
       <div className="bg-[#ffffff] border border-solid border-[#dddddd] rounded-xl"
       onClick={handleClick}
       >
@@ -17,6 +22,7 @@ const Car = ({car, handleCardClick}) => {
         <h1 className="pt-3 flex justify-around font-mont text-2xl font-bold text-[#333333]"> <span></span> </h1>
         </div>
       </div>
+      </Link>
     </div>
   );
 };

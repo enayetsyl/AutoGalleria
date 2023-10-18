@@ -9,6 +9,7 @@ import MyCart from "../Pages/MyCart/MyCart";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
+import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,23 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element:<Register></Register>
+      },
+      {
+        path:"/productdetals",
+        element:<ProductDetails></ProductDetails>,
+        loader: async ({ params }) => {
+          try {
+            const response = await fetch(`http://localhost:5000/products/${params.name}`);
+            if (!response.ok) {
+              throw new Error(`Request failed with status: ${response.status}`);
+            }
+            const data = await response.json();
+            return data;
+          } catch (error) {
+            console.error("Error loading product details:", error);
+            return null; // Handle the error as needed
+          }
+        },
       }
     ]
   },
