@@ -5,7 +5,10 @@ const ProductDetails = () => {
   const { products } = useContext(AuthContext);
 
   return (
-    <div>
+   
+    products ? 
+    (
+      <div>
       {/* carousel start */}
       <div className="carousel w-full h-[70vh]">
         {products.map((product, index) => (
@@ -49,6 +52,14 @@ const ProductDetails = () => {
       ))}
       </div>
     </div>
+    )
+    :
+    (
+      <div>
+      <h1 className="text-[#333333] font-mont text-5xl h-screen flex items-center justify-center font-bold">No Product Available for the brand</h1>
+      </div>
+    )
+   
   );
 };
 
