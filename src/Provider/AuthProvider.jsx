@@ -11,7 +11,7 @@ const AuthProvider = ({children}) => {
   const [userName, setUserName]= useState('');
   const [userPhoto, setUserPhoto] = useState('');
   const [user, setUser] = useState(null)
-  const [product, setProduct] = useState(null)
+  const [products, setProducts] = useState(null)
 
   const handleCardClick = async (name) => {
     try {
@@ -20,7 +20,7 @@ const AuthProvider = ({children}) => {
         throw new Error(`Request failed with status: ${response.status}`);
       }
       const data = await response.json();
-      setProduct(data);
+      setProducts(data);
     } catch (error) {
       console.log(error);
     }
@@ -69,7 +69,7 @@ const AuthProvider = ({children}) => {
     userName,
     userPhoto,
     handleCardClick,
-    product
+    products
   }
   return (
     <AuthContext.Provider value={info}>
