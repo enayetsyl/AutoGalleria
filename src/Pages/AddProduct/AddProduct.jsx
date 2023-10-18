@@ -4,14 +4,49 @@ import { FiType } from 'react-icons/fi';
 import { ImPriceTag } from 'react-icons/im';
 import { MdDescription } from 'react-icons/md';
 import { FcRating } from 'react-icons/fc';
-
+import swal from 'sweetalert';
 
 const AddProduct = () => {
+
+  const handleAddProduct = e => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const brand = form.brand.value;
+    const type = form.type.value;
+    const price = form.price.value;
+    const description = form.description.value;
+    const rating = form.rating.value;
+    const image = form.image.value;
+    const product = {name, brand, type, price, description, rating, image};
+    console.log(product)
+
+    // sending data to server
+
+    fetch ('http://localhost:5000/brands',{
+      method:'POST',
+      headers:{
+        'content-type':'application/json',
+      },
+      body:JSON.stringify(product)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      if(data.insertedId){
+        swal("Congratulation!", "Your product added successfully", "success");
+        // form.reset();
+      }
+      
+    })
+  }
+
   return (
     <div>
       <div className=" p-10 w-3/4 mx-auto bg-[#ffffff] rounded-xl mt-20">
     <h1 className="py-5 font-mont text-center text-3xl font-bold">Add a New Automotive Product</h1>
-    <div>
+   <form onSubmit={handleAddProduct}>
+   <div>
       <div className='flex  items-center gap-3 py-3'>
         <FaCar></FaCar>
         <h1 className='text-[#333333] font-mont font-bold text-xl'>Name</h1>
@@ -68,6 +103,7 @@ const AddProduct = () => {
       <input type="text" name="image" id="" placeholder='Type image URL.' className='font-roboto text-[#666666] border-solid border-b-2 border-[#dddddd] p-3 w-full'/>
     </div>
     <input type="submit" value="Add Product" className='w-full my-10 px-8 py-3 bg-[#077acc] text-white font-bold rounded-lg' />
+   </form>
       </div>
     </div>
   );

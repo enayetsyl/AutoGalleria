@@ -1,6 +1,22 @@
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
+
+  const { user, userLogout, userName, userPhoto } = useContext(AuthContext);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    if(userPhoto || (user && user.photoURL)){
+      setImageLoaded(false);
+    }
+  },[userPhoto, user])
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  }
+
   return (
     <div>
       <div className="navbar px-5 py-5 bg-[#333333]">
@@ -37,9 +53,31 @@ const Navbar = () => {
           </li>
     </ul>
   </div>
-  <div className="navbar-end">
-   <Link to='/login'><button className="btn">Login</button></Link>
-  </div>
+    {
+      user ? 
+      (
+        <div className="flex gap-2 justify-center items-center">
+              <p className="text-xs text-white">{userName || (user.displayName ? user.displayName || userName : 'No name found')}</p>
+              {(userPhoto || (user && user.photoURL)) && (
+                <img
+                  className={`h-10 w-10 rounded-full ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  src={userPhoto || (user && user.photoURL)}
+                  alt=""
+                  onLoad={handleImageLoad} 
+                />
+              )}
+              <button className="btn bg-blue-600 text-white" onClick={userLogout}>
+                Logout
+              </button>
+            </div>
+      )
+      : 
+      (<div className="navbar-end">
+      <Link to='/login'><button className="btn">Login</button></Link>
+     </div>)
+    }
+
+  
 </div>
     </div>
   );

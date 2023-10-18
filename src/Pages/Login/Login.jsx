@@ -1,5 +1,5 @@
 import { BsGoogle } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginPhoto from '../../assets/loginPhoto.jpg'
 import { AuthContext } from '../../Provider/AuthProvider';
 import swal from 'sweetalert';
@@ -7,7 +7,9 @@ import { useContext } from "react";
 
 const Login = () => {
 
-  const {loading, userLogin} = useContext(AuthContext)
+  const {loading, userLogin, googleLogin} = useContext(AuthContext)
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleLogin = e =>{
     e.preventDefault();
@@ -17,8 +19,10 @@ const Login = () => {
     console.log(email, password)
     userLogin(email, password)
     .then(result => {
+      console.log(result.user)
       if(result.user){
         swal("Congratulation!", "Your login successful!", "success")
+        navigate(location?.state ? location.state : '/');
       }
     })
     .catch(error => {
@@ -30,6 +34,18 @@ const Login = () => {
 
   const handleGoogleSignIn = e => {
     e.preventDefault();
+    googleLogin()
+    .then(result => {
+      if(result.user){
+        swal("Congratulation!", "Your login successful!", "success");
+        navigate(location?.state ? location.state : '/');
+      }
+    })
+    .catch(error => {
+      if(error){
+        swal("Sorry!", `${error.message}`, "error");
+      }
+    })
   }
 
   return (
