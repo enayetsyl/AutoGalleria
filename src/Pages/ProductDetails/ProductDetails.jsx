@@ -49,7 +49,9 @@ const handleCardClick = (productId) => {
             <h1 className="text-[#666666] py-5">{product.description}</h1>
             <div className="flex justify-between">
               
+              <Link to={`/cardetails/${product._id}`}>
               <button className="bg-[#007acc] text-white font-semibold border border-solid border-[#dddddd] px-10 py-3 rounded-3xl">Details</button>
+              </Link>
               
               <Link to={`/updateproduct/${product._id}`}>
               <button className="bg-[#007acc] text-white font-semibold border border-solid border-[#dddddd] px-10 py-3 rounded-3xl">Update</button>
