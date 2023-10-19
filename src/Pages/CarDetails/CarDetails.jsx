@@ -3,7 +3,16 @@ import { useLoaderData } from "react-router-dom";
 const CarDetails = () => {
   const car = useLoaderData();
   const { brand, description, image, name, price, rating, type, _id } = car;
-  console.log(car);
+
+  const handleAddToCart = () => {
+    const myProduct = {
+      brand, description, image, name, price, rating, type, _id
+   }
+   console.log(myProduct)
+   
+  }
+
+
   return (
     <div className="bg-[#ffffff] w-11/12 mx-auto h-[55vh] my-5">
       <div>
@@ -19,7 +28,9 @@ const CarDetails = () => {
           </div>
           <div className="flex
   ">
-              <button className="w-10/12 mx-auto text-white bg-[#007acc] font-semibold font-roboto text-xl py-3 rounded-lg">Add to Cart</button>
+              <button 
+              onClick={handleAddToCart}
+              className="w-10/12 mx-auto text-white bg-[#007acc] font-semibold font-roboto text-xl py-3 rounded-lg">Add to Cart</button>
             </div>
       </div>
     </div>

@@ -39,6 +39,7 @@ const Register = () => {
         setUserName(userName);
         setUserPhoto(userPhoto);
         
+        
         // Move the updateProfile call here
         updateProfile(auth.currentUser, {
           displayName: userName,
@@ -47,6 +48,21 @@ const Register = () => {
         .then(() => {
           // Handle success
           swal("Congratulation!", "Your Registration Complete!", "success");
+
+          fetch('http://localhost:5000/register',{
+          method:'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: userName,
+            email,
+          })
+        } )
+        .then(res => res.json())
+        .then(data =>{
+          console.log(data)
+        })
         })
         .catch(error => {
           console.log(error);
