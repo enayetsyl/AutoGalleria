@@ -1,9 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const ProductDetails = () => {
   const { products } = useContext(AuthContext);
-
+console.log(products._id)
+const handleCardClick = (productId) => {
+  console.log(`Product ID clicked: ${productId}`);
+  // You can perform additional actions here if needed.
+};
   return (
    
     products ? 
@@ -28,7 +33,9 @@ const ProductDetails = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5 w-11/12 mx-auto">
       {products.map((product) => (
-        <div key={product._id}>
+        <div key={product._id}
+        onClick={() => handleCardClick(product._id)}
+        >
           <div className="border border-solid border-[#dddddd] rounded-2xl bg-[#ffffff]">
             <img src={product.image} alt={product.name} className="rounded-t-2xl h-[400px] w-full" />
             <div className="p-5 font-roboto ">
@@ -44,7 +51,9 @@ const ProductDetails = () => {
               
               <button className="bg-[#007acc] text-white font-semibold border border-solid border-[#dddddd] px-10 py-3 rounded-3xl">Details</button>
               
+              <Link to={`/updateproduct/${product._id}`}>
               <button className="bg-[#007acc] text-white font-semibold border border-solid border-[#dddddd] px-10 py-3 rounded-3xl">Update</button>
+              </Link>
               </div>
             </div>
           </div>
@@ -67,62 +76,3 @@ export default ProductDetails;
 
 
 
-
-
-// import { useContext } from "react";
-// import { AuthContext } from "../../Provider/AuthProvider";
-
-
-
-// const ProductDetails = () => {
- 
-//     const {products} = useContext(AuthContext)
-//     const {brand, description, image, name, price, rating, type} = products;
-//     console.log(products)
-//   return (
-//     // className="grid grid-cols-2 gap-5"
-  
-//     <div >
-// {/* carousel start */}
-
-// <div className="carousel w-full">
-//   <div id="item1" className="carousel-item w-full">
-//     <img src="/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" className="w-full" />
-//   </div> 
-//   <div id="item2" className="carousel-item w-full">
-//     <img src="/images/stock/photo-1609621838510-5ad474b7d25d.jpg" className="w-full" />
-//   </div> 
-//   <div id="item3" className="carousel-item w-full">
-//     <img src="/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
-//   </div> 
-//   <div id="item4" className="carousel-item w-full">
-//     <img src="/images/stock/photo-1665553365602-b2fb8e5d1707.jpg" className="w-full" />
-//   </div>
-// </div> 
-// <div className="flex justify-center w-full py-2 gap-2">
-//   <a href="#item1" className="btn btn-xs">1</a> 
-//   <a href="#item2" className="btn btn-xs">2</a> 
-//   <a href="#item3" className="btn btn-xs">3</a> 
-//   <a href="#item4" className="btn btn-xs">4</a>
-// </div>
-
-// {/* carousel ends */}
-//       {
-//         products.map(product => (
-//           <div key={product._id}>
-//   <div>
-//         <img src={product.image} alt="" />
-//         <h1>{product.name}</h1>
-//         <h1>{product.description}</h1>
-//         <p>{product.rating}</p>
-//         <p>{product.type}</p>
-//         <p>{product.price}</p>
-//       </div>
-//           </div>
-//         ))
-//       }
-//     </div>
-//   );
-// };
-
-// export default ProductDetails;

@@ -27,9 +27,12 @@ const router = createBrowserRouter([
         element:<AddProduct></AddProduct>
       },
       {
-        path:'/updateproduct',
-        element:<UpdateProduct></UpdateProduct>
-      },
+        path: '/updateproduct/:id',
+        element: <UpdateProduct></UpdateProduct>,
+        loader:  ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
+        },
+      
+      
       {
         path:'/mycart',
         element:<MyCart></MyCart>
@@ -43,21 +46,9 @@ const router = createBrowserRouter([
         element:<Register></Register>
       },
       {
-        path:"/productdetals",
+        path:"/productdetails",
         element:<ProductDetails></ProductDetails>,
-        loader: async ({ params }) => {
-          try {
-            const response = await fetch(`http://localhost:5000/products/${params.name}`);
-            if (!response.ok) {
-              throw new Error(`Request failed with status: ${response.status}`);
-            }
-            const data = await response.json();
-            return data;
-          } catch (error) {
-            console.error("Error loading product details:", error);
-            return null; // Handle the error as needed
-          }
-        },
+        loader: async ({ params }) => fetch(`http://localhost:5000/products/${params.name}`)
       }
     ]
   },

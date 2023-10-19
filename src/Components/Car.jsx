@@ -5,11 +5,12 @@ const Car = ({car, handleCardClick, product}) => {
   // console.log(car)
   const handleClick = () => {
     handleCardClick(name)
+  
   }
   return (
     <div>
       <Link to={{
-  pathname: '/productdetals',
+  pathname: '/productdetails',
   state: { product: product }
 }}>
       <div className="bg-[#ffffff] border border-solid border-[#dddddd] rounded-xl"
