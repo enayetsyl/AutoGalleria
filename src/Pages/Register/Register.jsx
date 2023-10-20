@@ -10,7 +10,7 @@ const auth = getAuth();
 
 const Register = () => {
 
-  const {createUser, setUserName, setUserPhoto} = useContext(AuthContext)
+const {createUser, setUserName, setUserPhoto} = useContext(AuthContext)
 
 
   const handleRegister = e =>{
