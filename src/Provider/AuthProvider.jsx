@@ -16,7 +16,7 @@ const AuthProvider = ({children}) => {
 
   const handleCardClick = async (name) => {
     try {
-      const response = await fetch(`https://brand-shop-server-two-tau.vercel.app/products/${name}`);
+      const response = await fetch(`https://brand-shop-server-35jjqg4co-md-enayetur-rahmans-projects.vercel.app/products/${name}`);
       if (!response.ok) {
         throw new Error(`Request failed with status: ${response.status}`);
       }

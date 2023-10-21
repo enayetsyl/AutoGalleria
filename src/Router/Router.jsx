@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       {
        path:'/',
        element:<Home></Home>,
-       loader:() => fetch(`https://brand-shop-server-two-tau.vercel.app/cars`)
+       loader:() => fetch(`https://brand-shop-server-35jjqg4co-md-enayetur-rahmans-projects.vercel.app/cars`)
       },
       {
         path:'/addproduct',
@@ -31,12 +31,12 @@ const router = createBrowserRouter([
       {
         path: '/updateproduct/:id',
         element: <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
-        loader:  ({ params }) => fetch(`https://brand-shop-server-two-tau.vercel.app/product/${params.id}`)
+        loader:  ({ params }) => fetch(`https://brand-shop-server-35jjqg4co-md-enayetur-rahmans-projects.vercel.app/product/${params.id}`)
         },
         {
           path: '/cardetails/:id',
           element:<PrivateRoute><CarDetails></CarDetails></PrivateRoute>,
-          loader: ({ params }) => fetch(`https://brand-shop-server-two-tau.vercel.app/product/${params.id}`)
+          loader: ({ params }) => fetch(`https://brand-shop-server-35jjqg4co-md-enayetur-rahmans-projects.vercel.app/product/${params.id}`)
         },
       {
         path:'/mycart',
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       {
         path:"/productdetails/:name",
         element:<ProductDetails></ProductDetails>,
-        loader: async ({ params }) => fetch(`https://brand-shop-server-two-tau.vercel.app/products/${params.name}`)
+        loader: async ({ params }) => fetch(`https://brand-shop-server-35jjqg4co-md-enayetur-rahmans-projects.vercel.app/products/${params.name}`)
       }
     ]
   },

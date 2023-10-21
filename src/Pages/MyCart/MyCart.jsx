@@ -8,7 +8,7 @@ const MyCart = () => {
   const [cartItems, setCartItems] = useState([])
 
   useEffect(() => {
-    fetch(`https://brand-shop-server-two-tau.vercel.app/mycart/${userEmail}`)
+    fetch(`https://brand-shop-server-35jjqg4co-md-enayetur-rahmans-projects.vercel.app/mycart/${userEmail}`)
     .then(res => res.json())
     .then(data => {
       setCartItems(data)
@@ -30,7 +30,7 @@ const MyCart = () => {
     })
     .then((willDelete) => {
       if (willDelete) {
-        fetch(`https://brand-shop-server-two-tau.vercel.app/deletecart/${userEmail}`, {
+        fetch(`https://brand-shop-server-35jjqg4co-md-enayetur-rahmans-projects.vercel.app/deletecart/${userEmail}`, {
   method: 'DELETE',
   headers: {
     'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const MyCart = () => {
             <p>Rating: {cartItem.product.rating}</p>
             <p>Price: {cartItem.product.price}</p>
             </div>
-            <h1 className="text-[#e79a9a] py-5">{cartItem.product.description}</h1>
+            <h1 className="text-[#666666] py-5">{cartItem.product.description}</h1>
             <div className="flex justify-between">
               <button 
               onClick={() => handleDelete(cartItem.product._id)}

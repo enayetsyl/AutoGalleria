@@ -23,7 +23,7 @@ const AddProduct = () => {
 
     // sending data to server
 
-    fetch ('https://brand-shop-server-two-tau.vercel.app/brands',{
+    fetch ('https://brand-shop-server-35jjqg4co-md-enayetur-rahmans-projects.vercel.app/brands',{
       method:'POST',
       headers:{
         'content-type':'application/json',

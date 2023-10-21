@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import "../Pages/Home/Home.css"
+import {WiMoonAltFirstQuarter } from 'react-icons/wi';
 
 const Navbar = () => {
   const { user, userLogout, userName, userPhoto, setTheme, theme } = useContext(AuthContext);
@@ -74,9 +75,9 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <p className="font-mont text-[#007acc]">
-            <span className="font-bold text-5xl md:text-6xl">Auto</span>
-            <span className="font-medium text-3xl md:text-4xl">Galleria</span>
+          <p className="font-mont flex flex-col md:flex-row md:justify-center md:items-end text-[#007acc]">
+            <span className="font-bold text-3xl md:text-6xl lg:text-7xl">Auto</span>
+            <span className="font-medium text-2xl md:text-4xl lg:text-5xl">Galleria</span>
           </p>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -100,7 +101,9 @@ const Navbar = () => {
               </Link>
             </li>
             <li>{/* Toggle theme button */}
-        <button onClick={toggleTheme}>Toggle Theme</button></li>
+            
+       
+        </li>
           </ul>
         </div>
         {user ? (
@@ -117,14 +120,21 @@ const Navbar = () => {
             ) : invalidImage ? (
               <p className="text-xs text-red-500">Invalid image link</p>
             ) : null}
-            <button className="btn bg-blue-600 text-white" onClick={userLogout}>
+           <> <button className="btn bg-blue-600 text-white" onClick={userLogout}>
               Logout
             </button>
+            <button 
+           className="text-2xl p-3 ml-2 rounded-full"
+           onClick={toggleTheme}><WiMoonAltFirstQuarter></WiMoonAltFirstQuarter></button>
+            </>
           </div>
         ) : (
-          <div className="navbar-end">
+          <><div className="navbar-end">
             <Link to="/login"><button className="btn">Login</button></Link>
           </div>
+           <button 
+           className="text-2xl p-3 ml-2 rounded-full"
+           onClick={toggleTheme}><WiMoonAltFirstQuarter></WiMoonAltFirstQuarter></button></>
         )}
       </div>
     </div>

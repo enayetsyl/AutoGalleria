@@ -16,6 +16,7 @@
 }
 
 .theme-dark button {
-  background-color: #222; /* Button background color for the dark theme */
-  color: #fff; /* Button text color for the dark theme */
+  background-color: #fff; /* Button background color for the dark theme */
+  color: #333333; /* Button text color for the dark theme */
+  
 }

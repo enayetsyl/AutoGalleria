@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import registerPhoto from '../../assets/registerPhoto.png'
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from '../../Provider/AuthProvider';
 import swal from 'sweetalert';
 import { getAuth, updateProfile } from 'firebase/auth';
@@ -9,7 +9,8 @@ const auth = getAuth();
 
 
 const Register = () => {
-
+  const location = useLocation();
+  const navigate = useNavigate();
 const {createUser, setUserName, setUserPhoto} = useContext(AuthContext)
 
 
@@ -49,7 +50,7 @@ const {createUser, setUserName, setUserPhoto} = useContext(AuthContext)
           // Handle success
           swal("Congratulation!", "Your Registration Complete!", "success");
 
-          fetch('https://brand-shop-server-two-tau.vercel.app/register',{
+          fetch('https://brand-shop-server-35jjqg4co-md-enayetur-rahmans-projects.vercel.app/register',{
           method:'POST',
           headers: {
             'content-type': 'application/json',
@@ -62,6 +63,7 @@ const {createUser, setUserName, setUserPhoto} = useContext(AuthContext)
         .then(res => res.json())
         .then(data =>{
           console.log(data)
+          navigate(location?.state ? location.state : '/');
         })
         })
         .catch(error => {

@@ -15,7 +15,7 @@ const CarDetails = () => {
       brand, description, image, name, price, rating, type, _id, email
    }
    
-   fetch('https://brand-shop-server-two-tau.vercel.app/addtocart', {
+   fetch('https://brand-shop-server-35jjqg4co-md-enayetur-rahmans-projects.vercel.app/addtocart', {
     method:'POST',
     headers:{
       'content-type':"application/json"
@@ -40,10 +40,10 @@ const CarDetails = () => {
             <img src={image} alt="" className="w-full h-[350px]" />
           </div>
           <div className="flex justify-around gap-5 py-3">
-            <h1 className="font-mont font-bold text-3xl text-[#333333]">Name: {name}</h1>
-            <h2 className="font-mont font-bold text-3xl text-[#333333]">Type: {type}</h2>
-            <h2 className="font-mont font-bold text-3xl text-[#333333]">Brand: {brand}</h2>
-            <h3 className="font-mont font-bold text-3xl text-[#333333]">Price: {price}</h3>
+            <h1 className="font-mont font-bold text-2xl md:text-3xl text-[#333333]">Name: {name}</h1>
+            <h2 className="font-mont font-bold text-2xl md:text-3xl text-[#333333]">Type: {type}</h2>
+            <h2 className="font-mont font-bold text-2xl md:text-3xl text-[#333333]">Brand: {brand}</h2>
+            <h3 className="font-mont font-bold text-2xl md:text-3xl text-[#333333]">Price: {price}</h3>
             
           </div>
           <div className="flex
