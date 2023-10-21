@@ -49,7 +49,7 @@ const {createUser, setUserName, setUserPhoto} = useContext(AuthContext)
           // Handle success
           swal("Congratulation!", "Your Registration Complete!", "success");
 
-          fetch('http://localhost:5000/register',{
+          fetch('https://brand-shop-server-two-tau.vercel.app/register',{
           method:'POST',
           headers: {
             'content-type': 'application/json',

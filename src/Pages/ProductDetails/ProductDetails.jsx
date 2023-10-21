@@ -1,17 +1,17 @@
-import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
-import { Link } from "react-router-dom";
+
+import { Link, useLoaderData } from "react-router-dom";
 
 const ProductDetails = () => {
-  const { products } = useContext(AuthContext);
-console.log(products._id)
+  // const { products } = useContext(AuthContext);
+  const products = useLoaderData();
+console.log(products)
 const handleCardClick = (productId) => {
   console.log(`Product ID clicked: ${productId}`);
   // You can perform additional actions here if needed.
 };
   return (
    
-    products ? 
+    products.length > 0 ? 
     (
       <div>
       {/* carousel start */}

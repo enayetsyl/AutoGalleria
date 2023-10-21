@@ -7,7 +7,7 @@ import { useContext } from "react";
 
 const Login = () => {
 
-  const {loading, userLogin, googleLogin} = useContext(AuthContext)
+  const {loading, userLogin, googleLogin, setUserName, setUserPhoto} = useContext(AuthContext)
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -36,8 +36,11 @@ const Login = () => {
     e.preventDefault();
     googleLogin()
     .then(result => {
+      console.log(result.user)
       if(result.user){
         swal("Congratulation!", "Your login successful!", "success");
+        setUserName(result.user.displayName)
+        setUserPhoto(result.user.photoURL)
         navigate(location?.state ? location.state : '/');
       }
     })

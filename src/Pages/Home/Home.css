@@ -1,0 +1,21 @@
+/* Light Theme Styles */
+.theme-light {
+  background-color: #ffffff; /* Background color for the light theme */
+  color: #333333; /* Text color for the light theme */
+}
+
+.theme-light button {
+  background-color: #007acc; /* Button background color for the light theme */
+  color: #fff; /* Button text color for the light theme */
+}
+
+/* Dark Theme Styles */
+.theme-dark {
+  background-color: #333333; /* Background color for the dark theme */
+  color: #ffffff; /* Text color for the dark theme */
+}
+
+.theme-dark button {
+  background-color: #222; /* Button background color for the dark theme */
+  color: #fff; /* Button text color for the dark theme */
+}

@@ -10,12 +10,13 @@ const AuthProvider = ({children}) => {
   const [loading, setLoading] = useState(true);
   const [userName, setUserName]= useState('');
   const [userPhoto, setUserPhoto] = useState('');
-  const [user, setUser] = useState(null)
-  const [products, setProducts] = useState(null)
+  const [user, setUser] = useState(null);
+  const [products, setProducts] = useState(null);
+  const [theme, setTheme] = useState("light"); // State for theme
 
   const handleCardClick = async (name) => {
     try {
-      const response = await fetch(`http://localhost:5000/products/${name}`);
+      const response = await fetch(`https://brand-shop-server-two-tau.vercel.app/products/${name}`);
       if (!response.ok) {
         throw new Error(`Request failed with status: ${response.status}`);
       }
@@ -69,7 +70,10 @@ const AuthProvider = ({children}) => {
     userName,
     userPhoto,
     handleCardClick,
-    products
+    products,
+    setLoading,
+    theme, 
+    setTheme
   }
   return (
     <AuthContext.Provider value={info}>

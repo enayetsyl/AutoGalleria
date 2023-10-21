@@ -15,7 +15,7 @@ const CarDetails = () => {
       brand, description, image, name, price, rating, type, _id, email
    }
    
-   fetch('http://localhost:5000/addtocart', {
+   fetch('https://brand-shop-server-two-tau.vercel.app/addtocart', {
     method:'POST',
     headers:{
       'content-type':"application/json"

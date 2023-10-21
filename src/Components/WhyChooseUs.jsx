@@ -3,7 +3,9 @@ import { GrNew } from 'react-icons/gr';
 import { FcHighPriority } from 'react-icons/fc';
 const WhyChooseUs = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-14 w-10/12 mx-auto gap-5 ">
+    <div className=''>
+      <h1 className='font-mont text-5xl font-bold text-[#333333] text-center my-14'>Why us</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-14 w-10/12 mx-auto gap-5 ">
       <div className='border border-solid border-[#dddddd] px-5 py-10 bg-[#ffffff]'>
       <div className='text-center space-y-5'>
         <div className='flex justify-center items-center text-5xl'><FaBuromobelexperte></FaBuromobelexperte></div>
@@ -29,6 +31,7 @@ const WhyChooseUs = () => {
       </div>
       </div>
     
+    </div>
     </div>
   );
 };
